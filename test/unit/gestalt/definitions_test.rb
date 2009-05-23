@@ -167,6 +167,33 @@ class PlatformTest < Test::Unit::TestCase
     assert_equal expected_gestalts.sort, java.gestalts.sort
 	end
 
+	def test_arm
+    asm = SourceFile.new("foo.S", :contents => <<-INLINE_ASM
+    	orrs 3, eax
+      INLINE_ASM
+    )
+
+    expected_gestalts = [
+      Base.new(:platform, 'arm')
+    ]
+
+    assert_equal expected_gestalts.sort, asm.gestalts.sort
+	end
+
+	def test_arm_neon
+    asm = SourceFile.new("foo.S", :contents => <<-INLINE_ASM
+    	vmov u8, s
+      INLINE_ASM
+    )
+
+    expected_gestalts = [
+      Base.new(:platform, 'arm'),
+      Base.new(:platform, 'arm_neon')
+    ]
+
+    assert_equal expected_gestalts.sort, asm.gestalts.sort
+	end
+
 	def test_imports_from_java_file
     jar = SourceFile.new("foo/foo.jar", :contents => '')
 
