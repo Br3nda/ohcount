@@ -139,6 +139,18 @@ module Ohcount
 			language :python, :min_percent => 15
 		end
 
+		define_platform 'Perl' do
+			language :perl, :min_percent => 20
+		end
+
+		define_platform 'Scripting' do
+			gestalt(:platform, 'Javascript')
+			gestalt(:platform, 'Perl')
+			gestalt(:platform, 'PHP')
+			gestalt(:platform, 'Python')
+			gestalt(:platform, 'Ruby')
+		end
+
 		define_platform 'CakePHP' do
 			_and do
         gestalt(:platform, 'PHP')

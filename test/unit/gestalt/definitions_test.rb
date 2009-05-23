@@ -8,13 +8,15 @@ class PlatformTest < Test::Unit::TestCase
 	def test_zend_framework
 		assert_gestalts 'zend_framework', [
       Base.new(:platform,'PHP'),
-      Base.new(:platform,'ZendFramework')
+      Base.new(:platform,'ZendFramework'),
+			Base.new(:platform,'Scripting')
     ]
 	end
 
 	def test_php
 		assert_gestalts 'php', [
-      Base.new(:platform,'PHP')
+      Base.new(:platform,'PHP'),
+			Base.new(:platform,'Scripting')
     ]
 	end
 
@@ -58,7 +60,8 @@ class PlatformTest < Test::Unit::TestCase
 
 	def test_ruby_just_enough
 		assert_gestalts 'ruby_just_enough', [
-      Base.new(:platform, 'Ruby')
+      Base.new(:platform, 'Ruby'),
+      Base.new(:platform, 'Scripting')
     ]
 	end
 
@@ -69,20 +72,21 @@ class PlatformTest < Test::Unit::TestCase
 	def test_cakephp
 		assert_gestalts 'cakephp', [
       Base.new(:platform, 'PHP'),
-      Base.new(:platform, 'CakePHP')
+      Base.new(:platform, 'CakePHP'),
+      Base.new(:platform, 'Scripting'),
     ]
 	end
 
 	def test_symfony
-		assert_platform('symfony', :PHP, :Symfony)
+		assert_platform('symfony', :PHP, :Symfony, :Scripting)
 	end
 
 	def test_pear
-		assert_platform('pear', :PHP, :Pear)
+		assert_platform('pear', :PHP, :Pear, :Scripting)
 	end
 
 	def test_moodle
-		assert_platform('moodle', :PHP, :Moodle)
+		assert_platform('moodle', :PHP, :Moodle, :Scripting)
 	end
 
 	def test_spring_framework
@@ -94,15 +98,15 @@ class PlatformTest < Test::Unit::TestCase
 	end
 
 	def test_rails
-		assert_platform('rails', :Ruby, :Rails)
+		assert_platform('rails', :Ruby, :Rails, :Scripting)
 	end
 
 	def test_jquery
-		assert_platform('jquery', :Javascript, :JQuery)
+		assert_platform('jquery', :Javascript, :JQuery, :Scripting)
 	end
 
 	def test_python
-		assert_platform('python', :Python)
+		assert_platform('python', :Python, :Scripting)
 	end
 
 	def test_mac
@@ -134,7 +138,7 @@ class PlatformTest < Test::Unit::TestCase
 	end
 
 	def test_drupal
-		assert_platform('drupal', :PHP, :Drupal)
+		assert_platform('drupal', :PHP, :Drupal, :Scripting)
 	end
 
 	def test_vs_1
