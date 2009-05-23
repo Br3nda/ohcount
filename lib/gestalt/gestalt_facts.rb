@@ -1,15 +1,5 @@
 module Ohcount
 
-  module Gestalt
-
-    class GestaltFacts
-
-      def self.
-
-    end
-  end
-end
-
 	# Represents language statistics for a collection of files
 	class GestaltFacts
 		attr_accessor :platforms, :tools, :file_rules, :language_counts
@@ -48,10 +38,6 @@ end
 				break if prev_platforms == self.platforms && prev_tools == self.tools
 			end
 		end
-
-    def gestalts
-
-    end
 
 		def uninfered_platforms #:nodoc:
 			Gestalt::Platform.descendants - @platforms

@@ -199,9 +199,25 @@ module Ohcount
 
     ######################## Java Imports ##############################
 
-		define_java_import do
+    define_java_import do
       find_java_imports
-		end
+    end
+
+
+    ############################ ARM ###################################
+
+    define_platform 'arm' do
+      makefile_keywords '\b-mabi\b','\barmcc\b'
+      assembler_keywords '\bsmlal\b', '\bsmulw\b', '\borrs\b'
+      gestalt(:platform, 'arm_neon')
+    end
+
+    ########################## ARM NEON ################################
+
+    define_platform 'arm_neon' do
+      assembler_keywords '\bvld1.\d\d\b', '\bvld1.\d\d\b','\bvmov\b','\bvmov.u8\b'
+      makefile_keywords '\bneon\b','\bNEON\b'
+    end
 
 	end
 end

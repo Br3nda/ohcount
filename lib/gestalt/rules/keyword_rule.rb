@@ -1,5 +1,13 @@
 module Ohcount
 	module Gestalt
+		# Will trigger if the given keywords are found in the specified language.
+		# Example;
+		#
+		#
+		# c_keywords '__MSDOS__', 'MSDOS', :min => 2 
+		# 	# this will trigger if the	words "__MSDOS__" or "MSDOS" is found at
+		# 	# least twice in 'C' source code
+		#
 		class KeywordRule < FileRule
 			attr_reader :keywords, :language
 
